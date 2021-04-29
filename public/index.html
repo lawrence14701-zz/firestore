@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <!-- bulma css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css" />
+
+    <title>home</title>
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-app.js"></script>
     <!-- authentication -->
@@ -16,20 +20,68 @@
      https://firebase.google.com/docs/web/setup#available-libraries -->
 
     <script>
-      // Your web app's Firebase configuration
-      var firebaseConfig = {
-        apiKey: "AIzaSyD5tJkN9rpVyPpN9PJQpxiUKLhrLiHsxbo",
-        authDomain: "fir-learn-d0988.firebaseapp.com",
-        projectId: "fir-learn-d0988",
-        storageBucket: "fir-learn-d0988.appspot.com",
-        messagingSenderId: "653804931824",
-        appId: "1:653804931824:web:ce6495a7c45234a7e99035",
-      };
-      // Initialize Firebase
-      firebase.initializeApp(firebaseConfig);
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyD5tJkN9rpVyPpN9PJQpxiUKLhrLiHsxbo",
+            authDomain: "fir-learn-d0988.firebaseapp.com",
+            projectId: "fir-learn-d0988",
+            storageBucket: "fir-learn-d0988.appspot.com",
+            messagingSenderId: "653804931824",
+            appId: "1:653804931824:web:ce6495a7c45234a7e99035",
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
     </script>
 
-    <script defer src="app.js"></script>
-  </head>
-  <body></body>
+    <script src="./app.js" defer></script>
+</head>
+
+<body>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="https://bulma.io">
+                <h1>Super Hot Fire Cars 🔥</h1>
+            </a>
+
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <div id="userDetails"></div>
+                    <section id="whenSignedOut">
+                        <button id="signInBtn" class="button is-primary">
+                            Sign in with Google
+                        </button>
+                        <a  href="admin.html" id="admin" class="button is-danger">
+                            Admin Login
+                        </a>
+                    </section>
+                    <section style="display: none;" id="whenSignedIn">
+                        <button id="signOutBtn" class="button is-light">Sign Out</button>
+                    </section>
+                </div>
+            </div>
+    </nav>
+
+
+
+
+    <hr />
+
+    <section>
+
+
+        <article id='popup' class="message is-danger" style="width:50%;margin:auto">
+            <div class="message-header">
+              <p>Warning!!!</p>
+            </div>
+            <div class="message-body">
+                Please sign in to see availible cars
+            </div>
+          </article>
+
+
+        <div style="display: none;" id="carList" class="is-parent is-verticle"></div>
+
+    </section>
+</body>
+
 </html>

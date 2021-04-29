@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>admin</title>
+
+    <script defer src="admin.js"></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-app.js"></script>
+    <!-- authentication -->
+    <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-auth.js"></script>
+    <!-- cloud firestore -->
+    <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-firestore.js"></script>
+    <!-- bulma css -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css"
+    />
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyD5tJkN9rpVyPpN9PJQpxiUKLhrLiHsxbo",
+        authDomain: "fir-learn-d0988.firebaseapp.com",
+        projectId: "fir-learn-d0988",
+        storageBucket: "fir-learn-d0988.appspot.com",
+        messagingSenderId: "653804931824",
+        appId: "1:653804931824:web:ce6495a7c45234a7e99035",
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
+  </head>
+
+  <!-- car form  -->
+  <body style="padding: 100px">
+    <div style="display: none" id="carForm">
+      <h1 class="title">Welcome back boss!!!</h1>
+      <h2 class="subtitle">
+        Please use the form below to create a new car listing
+      </h2>
+      <h2 style="display: none" id="success" class="subtitle help is-success">
+        Woo hoo!!! You created a new listing. Go to home to check it out 🎉
+      </h2>
+      <h2 style="display: none" id="delete" class="subtitle help is-success">
+        Woo hoo!!! You deleted a new. Go to home to check it out 🎉
+      </h2>
+      <div class="field">
+        <label class="label">Name</label>
+        <div class="control">
+          <input id="name" class="input" type="text" placeholder="Text input" />
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Price</label>
+        <div class="control">
+          <input id="price" class="input" type="text" placeholder="$" />
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Image URL</label>
+        <div class="control">
+          <input id="imageUrl" class="input" type="text" placeholder="" />
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Information</label>
+        <div class="control">
+          <textarea
+            id="info"
+            class="textarea"
+            placeholder="whats so cool about this car"
+          ></textarea>
+        </div>
+      </div>
+
+      <div class="control">
+        <button id="createCar" class="button is-link">Submit</button>
+        <a id="signOutBtn" href="index.html" class="button is-primary"
+          >Go to home</a
+        >
+      </div>
+
+      <div
+        id="items"
+        style="
+          margin-top: 15px;
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          grid-gap: 30px;
+        "
+      ></div>
+    </div>
+
+    <!-- sign in form for user -->
+
+    <div id="signIn">
+      <h1 class="title">Admin sign in</h1>
+      <h2 class="subtitle">Please sign in with your credentials below</h2>
+      <h2 style="display: none" id="error" class="subtitle help is-danger">
+        The username or password is invalid
+      </h2>
+
+      <div class="field">
+        <label class="label">Username</label>
+        <div class="control">
+          <input
+            id="username"
+            class="input"
+            type="text"
+            placeholder="Text input"
+          />
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Password</label>
+        <div class="control">
+          <input
+            id="password"
+            class="input"
+            type="password"
+            placeholder="Text input"
+          />
+        </div>
+      </div>
+      <div class="control">
+        <button id="signInButton" class="button is-link">Submit</button>
+        <a href="index.html" class="button is-primary">Cancel</a>
+      </div>
+    </div>
+  </body>
+</html>
